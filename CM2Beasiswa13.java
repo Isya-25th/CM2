@@ -1,4 +1,8 @@
 import java.util.Scanner;
+// Nama  : Isya Putra Ragil
+// NIM   : 254107060116
+// Kelas : SIB-1B
+// Absen : 13
 
 public class CM2Beasiswa13 {
     // Deklarasi Scanner dan array data
