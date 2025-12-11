@@ -49,6 +49,10 @@ public class CM2Beasiswa13 {
     }
     // Tampilkan semua data pendaftar
     public static void tampilkanData() {
+        if (jumlahPendaftar == 0) {
+            System.out.println("Belum ada data pendaftar.");
+            return;
+        }
         System.out.println("=== Daftar Pendaftar Beasiswa ===");
         System.out.printf("%-20s %-15s %-6s %-10s %-15s%n", "Nama", "NIM", "IPK", "Jenis", "Penghasilan Ortu");
         // Loop untuk menampilkan semua data pendaftar
