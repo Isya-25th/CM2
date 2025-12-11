@@ -45,7 +45,7 @@ public class CM2Beasiswa13 {
         data[jumlahPendaftar][3] = jenis;
         data[jumlahPendaftar][4] = penghasilanStr;
         jumlahPendaftar++;
-        System.out.println("Data pendaftar berhasil ditambahkan.");
+        System.out.println("Data pendaftar berhasil ditambahkan. Total pendaftar" + jumlahPendaftar);
     }
     // Tampilkan semua data pendaftar
     public static void tampilkanData() {
@@ -79,6 +79,7 @@ public class CM2Beasiswa13 {
         for (String jenis : jenisBeasiswa) {
             double totalIPK = 0;
             int count = 0;
+            // Loop untuk menjumlahkan IPK dan menghitung jumlah pendaftar per jenis beasiswa
             for (int i = 0; i < jumlahPendaftar; i++) {
                 if (data[i][3].equalsIgnoreCase(jenis)) {
                     totalIPK += Double.parseDouble(data[i][2]);
