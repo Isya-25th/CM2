@@ -38,6 +38,14 @@ public class CM2Beasiswa13 {
         String jenis = sc.nextLine();
         System.out.print("Masukkan Penghasilan Orang Tua (<= 2000000): ");
         String penghasilanStr = sc.nextLine();
+        if (Double.parseDouble(ipkStr) < 0.0 || Double.parseDouble(ipkStr) > 4.0) {
+            System.out.println("IPK tidak valid. Harus antara 0.0 hingga 4.0.");
+            return;
+        }
+        if (Double.parseDouble(penghasilanStr) > 2000000) {
+            System.out.println("Penghasilan orang tua tidak valid. Harus kurang dari atau sama dengan 2000000.");
+            return;
+        }
         // Simpan data ke array
         data[jumlahPendaftar][0] = nama;
         data[jumlahPendaftar][1] = nim;
@@ -45,7 +53,7 @@ public class CM2Beasiswa13 {
         data[jumlahPendaftar][3] = jenis;
         data[jumlahPendaftar][4] = penghasilanStr;
         jumlahPendaftar++;
-        System.out.println("Data pendaftar berhasil ditambahkan. Total pendaftar" + jumlahPendaftar);
+        System.out.println("Data pendaftar berhasil ditambahkan. Total pendaftar: " + jumlahPendaftar);
     }
     // Tampilkan semua data pendaftar
     public static void tampilkanData() {
@@ -68,10 +76,15 @@ public class CM2Beasiswa13 {
         System.out.println("=== Hasil Pencarian Pendaftar Beasiswa ===");
         System.out.printf("%-20s %-15s %-6s %-10s %-15s%n", "Nama", "NIM", "IPK", "Jenis", "Penghasilan Ortu");
         // Loop untuk mencari dan menampilkan data sesuai jenis beasiswa
+        boolean adaData = false;
         for (int i = 0; i < jumlahPendaftar; i++) {
             if (data[i][3].equalsIgnoreCase(jenisCari)) {
                 System.out.printf("%-20s %-15s %-6.2f %-10s %-15.2f%n", data[i][0], data[i][1], Double.parseDouble(data[i][2]), data[i][3], Double.parseDouble(data[i][4]));
+                adaData = true;
             }
+        }
+        if (!adaData) {
+            System.out.println("Tidak ada pendaftar dengan jenis beasiswa tersebut.");
         }
     }   
 
